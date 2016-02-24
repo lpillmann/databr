@@ -41,8 +41,14 @@ def print_xml_element(tree):
 		print '<' + e.tag + '>', e.text
 
 def print_xml_element_tags(tree, tag):
+	# caso de uso: print_xml_element_tags(votacoes_senador('4981', 'pls', '', '2014', 'n'),'TextoTramitacao')
+
 	for e in tree.findall('.//' + tag):
 		print '<' + e.tag + '>', e.text
+
+
+
+
 
 
 # tests
