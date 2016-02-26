@@ -8,7 +8,7 @@ from firebase import firebase
 
 firebase = firebase.FirebaseApplication('https://maisbr.firebaseio.com', None)
 
-def get_nomes_codigos_atual():
+def get_nomes_metadata_atual():
 	# Gets attributes from parlamentares and saves into Firebase 
 	# --> still needs to put right below 'senadores URL', now it's using FB id there...
 
@@ -22,7 +22,6 @@ def get_nomes_codigos_atual():
 	for sen in senadores_tree:
 		
 		codigo = sen.find('CodigoParlamentar').text
-		
 		# creates object with id 'codigo' and all data nested into that
 		senadores_dict[codigo] = {}
 		senadores_dict[codigo]['NomeParlamentar'] 			= sen.find('NomeParlamentar').text
@@ -34,10 +33,8 @@ def get_nomes_codigos_atual():
 		senadores_dict[codigo]['SiglaPartidoParlamentar'] 	= sen.find('SiglaPartidoParlamentar').text
 		senadores_dict[codigo]['UfParlamentar'] 			= sen.find('UfParlamentar').text
 
-	for codigo, senador in senadores_dict.iteritems():
-		print codigo, senador['EmailParlamentar']
-		#print '---------'
+	firebase.post('/senadores', senadores_dict)
 
-	result = firebase.post('/senadores', senadores_dict)
-	print result
+def get_materias_metadata_atual():
+	# Define how 'atual' the materias are (fetch by date, maybe? By number intrinsically is by date?)
 		
