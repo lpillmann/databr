@@ -53,7 +53,7 @@ def print_xml_element_tags(tree, tag):
 #def get_tag_content(tree):
 
 
-def votacoes_senador(codigo, sigla, numero, ano, tramitando):
+def votacoes_senador(codigo, params):
     # Retorna tree XML com todas as votações do mandato do senador, sujeito aos parâmetros
     # --> Processar dados para extrair somente infos relevantes
     # --> Avaliar usar objeto de parâmetros como argumento em vez de tudo separado
@@ -63,8 +63,8 @@ def votacoes_senador(codigo, sigla, numero, ano, tramitando):
     # @ano:         (opcional) ano da matéria - retorna apenas as matérias do ano informado
     # @tramitacao:  (opcional) (S ou N) - retorna apenas as matérias que estão tramitando (S) ou apenas as que não estão (N). Se não for informado, retorna ambas.
 
-    params = {'sigla': sigla, 'numero': numero, 'ano': ano, 'tramitando': tramitando}
-    params = {k: v for k, v in params.items() if v} # eliminates empty parameters
+    #params = {'sigla': sigla, 'numero': numero, 'ano': ano, 'tramitando': tramitando}
+    #params = {k: v for k, v in params.items() if v} # eliminates empty parameters
     print 'Votações do senador:', codigo, params
     url = '/senador/' + codigo + '/votacoes?'
     tree = tree_from_serviceurl_params(url, params)
