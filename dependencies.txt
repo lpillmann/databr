@@ -1,0 +1,5 @@
+python
+pip (sudo apt-get install python-pip)
+virtualenv (sudo pip install virtualenv)
+ipython (sudo pip install ipython)
+firebase (pip install -e git://github.com/mikexstudios/python-firebase.git#egg=python-firebase)
