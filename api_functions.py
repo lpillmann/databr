@@ -2,7 +2,6 @@
 
 import urllib
 import xml.etree.ElementTree  as ET
-import xmltodict, json
 
 serviceurl = 'http://legis.senado.gov.br/dadosabertos'
 url = '/senador/4981/votacoes'
