@@ -1,3 +1,6 @@
+# Faz a importação dos votos para diferentes anos e tipos de matéria
+# Pode demorar horas --> rodar externamente (e.g. RPi)
+
 import get_clean_data as cd
 
 siglas = [	'PEC', 
